@@ -18,28 +18,34 @@ document.querySelector('.ok-button ').addEventListener('click', ()=>{
   
   
 
-  let quoteValue = quote.value.trim();
-  let doDate = date.value
+   let quoteValue = quote.value.trim();
+   let doDate = date.value
   
-  const data = {name: quoteValue ,date: doDate }
-  task.push(data)
-  localStorage.setItem('list', JSON.stringify(task));
-  let tri = task.sort((a,b)=> a.date.localeCompare(b.date))
-  console.log(tri)
-  console.log(data,localStorage)
+   const data = {name: quoteValue ,date: doDate }
+   task.push(data)
+   localStorage.setItem('list', JSON.stringify(task));
+   let tri = task.sort((a,b)=> a.date.localeCompare(b.date))
+   console.log(tri)
+   console.log(data,localStorage)
   
   
-  
-
-  createElement(quoteValue,doDate,data)
-  
-  quote.value=''
-
-
-  if(quoteValue==""){
+    if(quoteValue==""){
     alert('Entrez une tache avant')
-    return;
+    
+    
+    
+  }else{
+    
+    createElement(quoteValue,doDate,data)
+
   }
+
+  quote.value=''
+  
+  
+
+
+
 
 
 
@@ -128,3 +134,16 @@ function alertElem(task){
 function clearLocalStorage(){
   localStorage.clear()
 }
+
+// function todo(quoteValue,data,tri,task){
+//   let quoteValue = quote.value.trim();
+//   let doDate = date.value
+  
+//   const data = {name: quoteValue ,date: doDate }
+//   task.push(data)
+//   localStorage.setItem('list', JSON.stringify(task));
+//   let tri = task.sort((a,b)=> a.date.localeCompare(b.date))
+//   console.log(tri)
+//   console.log(data,localStorage)
+//   quote.value=''
+// }
